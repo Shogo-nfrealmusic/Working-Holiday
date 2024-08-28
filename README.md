@@ -5,7 +5,9 @@ Image of Website Construction
 <br>
 https://ebony-lake-823.notion.site/Flowchart-in-Development-aa9603a38a3e4dea9ee99244149a31f8?pvs=4
 <br>
+<br>
 In development, branches are divided and each section is created by two people
+<br>
 <br>
 @hyou _freelon
 <br>
