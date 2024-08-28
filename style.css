@@ -1,30 +1,35 @@
 header {
     color: black;
     padding: 15px 0;
-    position: sticky;
-    top: 0;
+    position: sticky; /* スクロール時に上部に固定 */
+    top: 0; /* ページ上部に固定 */
     width: 100%;
-    transition: background-color 0.3 ease;
+    background-color: white; /* 背景色を指定 */
+    z-index: 1000; /* 他の要素より前に表示 */
+    transition: background-color 0.3s ease;
 }
+
 .container {
     max-width: 960px; 
     margin: 0 auto; 
     padding: 0 20px; 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* 左右の要素を適切に配置 */
     align-items: center; 
 }
+
 .logo {
     font-size: 24px;
     text-decoration: none; 
     color: black;
     font-weight: bold;
-    font-weight: bold; 
     margin-right: auto;
 }
+
 nav {
     flex-grow: 1;
 }
+
 nav ul {
     list-style: none;
     margin: 0;
@@ -32,10 +37,12 @@ nav ul {
     display: flex;
     justify-content: center;
 }
+
 nav ul li {
     margin: 0 15px; 
     transition: transform 0.3s ease;
 }
+
 nav ul li a {
     color: black; 
     text-decoration: none; 
@@ -61,11 +68,6 @@ nav ul li a:hover {
 .cta-button:hover {
     background-color: black; 
     transform: scale(1.05);
-
-.hero {
-    font-family: "Nerko One", cursive;
-    font-weight: 400;
-    font-style: normal;
 }
 
 body, html {
@@ -74,20 +76,25 @@ body, html {
     height: 100%;
     font-family: Arial, sans-serif;
     background-color: #282c34; /* 任意の背景色や画像を設定 */
+    color: white;
+}
+
+.hero {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
     text-align: center;
+    font-family: "Nerko One", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .hero-content {
-    text-align: center;
     position: relative;
-    z-index: 2; /* 動画の上にコンテンツを表示する */
-    text-align: center;
+    z-index: 2;
     color: black;
+    text-align: center;
 }
 
 .hero-title {
