@@ -1,10 +1,10 @@
 # Working-Holiday
-友達と共同開発を学ぶために簡単なwebsiteを作成
+Create a simple website to learn to co-develop with friends
 
-Website構築にあたってのイメージ
+Image of Website Construction
 https://ebony-lake-823.notion.site/Flowchart-in-Development-aa9603a38a3e4dea9ee99244149a31f8?pvs=4
 
-開発ではbranchを分けて各セクションを2人で分担して作成
+In development, branches are divided and each section is created by two people
 
 @hyou _freelon
 ・Header
