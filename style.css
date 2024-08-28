@@ -1,0 +1,122 @@
+.hero {
+    font-family: "Nerko One", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #282c34; /* 任意の背景色や画像を設定 */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2; /* 動画の上にコンテンツを表示する */
+    text-align: center;
+    color: black;
+}
+
+.hero-title {
+    display: block;
+    font-size: 60px;
+    margin-bottom: 40px; /* タイトルとサブタイトルの間に少しスペースを追加 */
+    opacity: 0; /* 初期状態で非表示 */
+    transform: translateX(-100%); /* 左外側に配置 */
+    animation: slideIn 1s forwards ease-in-out 0.5s; /* 0.5秒遅れて1秒かけてスライドイン */
+}
+
+.hero-subtitle {
+    display: block;
+    font-size: 50px;
+    opacity: 0; /* 初期状態で非表示 */
+    transform: translateX(-100%); /* 左外側に配置 */
+    animation: slideIn 1s forwards ease-in-out 1.5s; /* 1.5秒遅れて1秒かけてスライドイン */
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 40px;
+    }
+
+    .hero-subtitle {
+        font-size: 30px;
+    }
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0); /* 元の位置に移動 */
+    }
+}
+
+.hero-button {
+    opacity: 0; /* 初期状態で非表示 */
+    transform: translateX(-100%); /* 左外側に配置 */
+    animation: slideIn 1s forwards ease-in-out 2s; /* 1.5秒遅れて1秒かけてスライドイン */
+    display: inline-block; /* インライン要素をブロック要素のように扱う */
+    padding: 10px 20px; /* ボタン内の余白を設定 */
+    font-size: 20px; /* テキストサイズを設定 */
+    color: white; /* テキストの色を白に設定 */
+    background-color: #007bff; /* ボタンの背景色を設定 */
+    text-decoration: none; /* リンクの下線を消す */
+    border-radius: 5px; /* ボタンの角を丸くする */
+    text-align: center; /* テキストを中央揃えにする */
+    cursor: pointer; /* カーソルをポインタに変更 */
+    transition: background-color 0.3s; /* 背景色が変化する際のアニメーション */
+}
+
+.hero-button:hover {
+    background-color: #0056b3; /* ホバー時に背景色を変更 */
+}
+
+.hero-footer {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    z-index: 2;
+    height: 68px;
+    width: 22px;
+    overflow: hidden;
+  }
+
+.hero-downarrow {
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    width: 10px;
+    color: white;
+}
+
+.hero-scrolltext {
+    position: absolute;
+    transform: rotate(90deg);
+    color: white;
+    left: -8px;
+    top: 11px;
+    font-size: 1.5em;
+  }
+
+  .hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 動画がセクション全体を覆うように調整 */
+    transform: translate(-50%, -50%); /* 動画を中央に配置 */
+    pointer-events: none; /* 動画がクリックできないようにする（必要に応じて） */
+}
