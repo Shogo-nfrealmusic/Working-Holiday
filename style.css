@@ -77,10 +77,11 @@ body, html {
     font-family: Arial, sans-serif;
     background-color: #282c34; /* 任意の背景色や画像を設定 */
     color: white;
+    overflow-x: hidden; /* 横スクロールを無効にする */
 }
 
 .hero {
-    height: 100vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,6 +89,8 @@ body, html {
     font-family: "Nerko One", cursive;
     font-weight: 400;
     font-style: normal;
+    position: relative; /* 子要素の位置調整のために追加 */
+    overflow: visible; /* hero要素内の要素が隠れないように */
 }
 
 .hero-content {
@@ -155,32 +158,37 @@ body, html {
 .hero-footer {
     position: absolute;
     left: 50%;
-    bottom: 20px;
+    bottom: 80px; /* フッターに隠れないように上に配置 */
     transform: translateX(-50%);
     z-index: 2;
-    height: 68px;
-    width: 22px;
-    overflow: hidden;
-  }
+    height: 60px; /* 十分な高さを確保 */
+    width: 40px; /* 十分な幅を確保 */
+    overflow: visible; /* 要素が隠れないようにする */
+}
 
 .hero-downarrow {
     position: absolute;
-    left: 0;
-    bottom: 5px;
-    width: 10px;
+    left: 50%;
+    bottom: 0; /* 下端に配置 */
+    transform: translateX(-50%);
+    width: 10px; /* 矢印の幅をさらに縮小 */
+    height: auto; /* 矢印の高さを自動調整 */
     color: white;
+    z-index: 10; /* 他の要素に隠れないようにする */
 }
 
 .hero-scrolltext {
     position: absolute;
     transform: rotate(90deg);
     color: white;
-    left: -8px;
-    top: 11px;
+    left: -40px; /* 十分なスペースを確保 */
+    top: -20px; /* 上部に適切に配置 */
     font-size: 1.5em;
-  }
+    white-space: nowrap; /* テキストが折り返されないようにする */
+    z-index: 10; /* 他の要素に隠れないようにする */
+}
 
-  .hero-video {
+.hero-video {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -190,4 +198,82 @@ body, html {
     object-fit: cover; /* 動画がセクション全体を覆うように調整 */
     transform: translate(-50%, -50%); /* 動画を中央に配置 */
     pointer-events: none; /* 動画がクリックできないようにする（必要に応じて） */
+}
+
+/* フッター全体のスタイル */
+.footer {
+    position: fixed; /* 画面の一番下に固定 */
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa; /* 背景色を設定 */
+    color: #000; /* 文字色を黒に設定 */
+    padding: 10px 0; /* パディングを減らして高さを調整 */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* 影をつけることで分離感を出す */
+    z-index: 999; /* ヒーロー要素より手前に表示 */
+}
+
+/* フッターナビゲーションのスタイル */
+.footer-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* フッター内のリストアイテムを横並びに */
+.footer-ul {
+    list-style-type: none;
+    display: flex;
+    gap: 15px; /* 各リストアイテムの間隔を狭める */
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap; /* アイテムが多い場合に折り返す */
+    justify-content: center; /* アイテムを中央揃えに */
+}
+
+/* リストアイテムのスタイル */
+.footer-li {
+    margin-bottom: 5px; /* スマホでの間隔をさらに狭める */
+}
+
+/* コピーライトのスタイル */
+.footer__copyright {
+    font-size: 14px;
+    margin-top: 5px; /* 上部のマージンを調整して高さを縮小 */
+}
+
+/* アイテム共通のスタイル */
+.item {
+    color: #000; /* 文字色を黒に設定 */
+    text-decoration: none;
+}
+
+/* スマホデザイン用の調整 */
+@media (max-width: 768px) {
+    .footer-nav {
+        flex-direction: column; /* 縦方向に並べる */
+        align-items: center; /* 中央揃えにする */
+        text-align: center; /* テキストを中央揃えにする */
+        padding: 15px 10px; /* 上下のパディングをさらに減らす */
+    }
+
+    .footer-title {
+        margin-bottom: 20px; /* タイトルの下に間隔を追加 */
+    }
+
+    .footer-ul {
+        flex-direction: column; /* 縦並びにする */
+        gap: 10px; /* 各リストアイテムの間隔をさらに狭める */
+        margin-bottom: 10px; /* リスト全体の下に余白を少なく */
+    }
+
+    .footer-li {
+        margin-bottom: 5px; /* 各リストアイテムの下に少しの間隔を追加 */
+    }
+
+    .footer__copyright {
+        margin-top: 10px; /* コピーライトの上に少しの間隔を追加 */
+    }
 }
