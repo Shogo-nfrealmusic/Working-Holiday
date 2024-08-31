@@ -25,3 +25,9 @@ In development, branches are divided and each section is created by two people
 <h2>
   HTML , CSS, Javascript
 </h2>
+<br>
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=html,css,js,git,github,notion" />
+  </a>
+</div>
