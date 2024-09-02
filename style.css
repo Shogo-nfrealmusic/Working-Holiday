@@ -80,10 +80,13 @@ body, html {
     font-family: Arial, sans-serif;
     background-color: black; /* 任意の背景色や画像を設定 */
     color: white;
+    background-color: #282c34; /* 任意の背景色や画像を設定 */
+    color: rgb(10, 158, 168);
+    overflow-x: hidden; /* 横スクロールを無効にする */
 }
 
 .hero {
-    height: 100vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,6 +94,8 @@ body, html {
     font-family: "Nerko One", cursive;
     font-weight: 400;
     font-style: normal;
+    position: relative; /* 子要素の位置調整のために追加 */
+    overflow: visible; /* hero要素内の要素が隠れないように */
 }
 
 .hero-content {
@@ -158,32 +163,37 @@ body, html {
 .hero-footer {
     position: absolute;
     left: 50%;
-    bottom: 20px;
+    bottom: 80px; /* フッターに隠れないように上に配置 */
     transform: translateX(-50%);
     z-index: 2;
-    height: 68px;
-    width: 22px;
-    overflow: hidden;
-  }
+    height: 60px; /* 十分な高さを確保 */
+    width: 40px; /* 十分な幅を確保 */
+    overflow: visible; /* 要素が隠れないようにする */
+}
 
 .hero-downarrow {
     position: absolute;
-    left: 0;
-    bottom: 5px;
-    width: 10px;
+    left: 50%;
+    bottom: 0; /* 下端に配置 */
+    transform: translateX(-50%);
+    width: 10px; /* 矢印の幅をさらに縮小 */
+    height: auto; /* 矢印の高さを自動調整 */
     color: white;
+    z-index: 10; /* 他の要素に隠れないようにする */
 }
 
 .hero-scrolltext {
     position: absolute;
     transform: rotate(90deg);
     color: white;
-    left: -8px;
-    top: 11px;
+    left: -40px; /* 十分なスペースを確保 */
+    top: -20px; /* 上部に適切に配置 */
     font-size: 1.5em;
-  }
+    white-space: nowrap; /* テキストが折り返されないようにする */
+    z-index: 10; /* 他の要素に隠れないようにする */
+}
 
-  .hero-video {
+.hero-video {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -194,7 +204,6 @@ body, html {
     transform: translate(-50%, -50%); /* 動画を中央に配置 */
     pointer-events: none; /* 動画がクリックできないようにする（必要に応じて） */
 }
-
 /* 国情報コンテナのスタイル */
 .country-info-container {
     display: grid;
@@ -343,7 +352,171 @@ a {
     cursor: pointer;
 }
 
+.at {
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+    margin: 20px auto 5px auto; /* セクションを中央に配置し、下部に余白を追加 */
+    max-width: 100%; /* セクション全体を画面全体に広げる */
+    text-align: center; /* タイトルと見出しを中央揃え */
+    background-color: rgb(110, 129, 157);
+}
 
+.at-title {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: rgb(185, 64, 64);
+    font-family: Arial, sans-serif;
+    display: block;
+    width: 100%;
+}
 
+.at-subtitle {
+    font-size: 24px;
+    margin: 30px 0;
+    cursor: pointer;
+    color: whitesmoke;
+    font-weight: bold;
+    text-align: center;
+}
 
+.at-subtitle:hover {
+    text-decoration: underline;
+}
 
+.at-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    margin: 0 auto; /* 中央揃え */
+    padding: 0;
+    max-width: 600px; /* コンテンツの最大幅を設定 */
+    border-left: 3px solid #2c3e50;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* 背景色を追加 */
+    text-align: left; /* テキストは左揃え */
+    color: #333; /* 文字色を濃く */
+}
+
+.at-content.open {
+    max-height: 1000px; /* コンテンツが十分に展開される高さを設定 */
+    opacity: 1;
+    margin-top: 20px;
+    padding: 20px;
+    transition: max-height 0.5s ease, opacity 0.5s ease; /* 展開時のトランジション */
+    background-color: aqua;
+}
+
+@media (max-width: 768px) {
+    .at {
+        padding: 0 15px; /* スマホサイズで左右の余白を広げる */
+        margin-bottom: 5px !important;
+    }
+
+    .at-title {
+        font-size: 24px; /* タイトルの文字サイズをさらに小さく */
+        white-space: nowrap; /* 改行しないようにする */
+        overflow: hidden;
+        text-overflow: ellipsis; /* 長すぎる場合に省略 */
+    }
+
+    .at-subtitle {
+        font-size: 18px; /* サブタイトルの文字サイズをさらに小さく */
+        margin: 15px 0;
+        white-space: nowrap; /* 改行しないようにする */
+        overflow: hidden;
+        text-overflow: ellipsis; /* 長すぎる場合に省略 */
+    }
+
+    .at-content {
+        max-width: 100%; /* コンテンツを画面全体に広げる */
+        font-size: 14px; /* コンテンツの文字サイズを小さく */
+    }
+
+    .at-content.open {
+        max-height: 1000px; /* コンテンツが十分に展開される高さを設定 */
+        opacity: 1;
+        margin-top: 20px;
+        padding: 20px;
+        transition: max-height 0.5s ease, opacity 0.5s ease; /* 展開時のトランジション */
+        background-color: aqua;
+    }
+}
+
+/* フッター全体のスタイル */
+.footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa; /* 背景色を設定 */
+    color: #000; /* 文字色を黒に設定 */
+    padding: 10px 0; /* パディングを減らして高さを調整 */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* 影をつけることで分離感を出す */
+    z-index: 999; /* ヒーロー要素より手前に表示 */
+}
+
+/* フッターナビゲーションのスタイル */
+.footer-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* フッター内のリストアイテムを横並びに */
+.footer-ul {
+    list-style-type: none;
+    display: flex;
+    gap: 15px; /* 各リストアイテムの間隔を狭める */
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap; /* アイテムが多い場合に折り返す */
+    justify-content: center; /* アイテムを中央揃えに */
+}
+
+/* リストアイテムのスタイル */
+.footer-li {
+    margin-bottom: 5px; /* スマホでの間隔をさらに狭める */
+}
+
+/* コピーライトのスタイル */
+.footer__copyright {
+    font-size: 14px;
+    margin-top: 5px; /* 上部のマージンを調整して高さを縮小 */
+}
+
+/* アイテム共通のスタイル */
+.item {
+    color: #000; /* 文字色を黒に設定 */
+    text-decoration: none;
+}
+
+/* スマホデザイン用の調整 */
+@media (max-width: 768px) {
+    .footer-nav {
+        flex-direction: column; /* 縦方向に並べる */
+        align-items: center; /* 中央揃えにする */
+        text-align: center; /* テキストを中央揃えにする */
+        padding: 15px 10px; /* 上下のパディングをさらに減らす */
+    }
+
+    .footer-title {
+        margin-bottom: 20px; /* タイトルの下に間隔を追加 */
+    }
+
+    .footer-ul {
+        flex-direction: column; /* 縦並びにする */
+        gap: 10px; /* 各リストアイテムの間隔をさらに狭める */
+        margin-bottom: 10px; /* リスト全体の下に余白を少なく */
+    }
+
+    .footer-li {
+        margin-bottom: 5px; /* 各リストアイテムの下に少しの間隔を追加 */
+    }
+
+    .footer__copyright {
+        margin-top: 10px; /* コピーライトの上に少しの間隔を追加 */
+    }
+}
