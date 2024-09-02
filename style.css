@@ -1,76 +1,145 @@
 header {
-    color: black;
     padding: 15px 0;
-    position: sticky; /* スクロール時に上部に固定 */
-    text-align: center ;
-    top: 0; /* ページ上部に固定 */
+    position: sticky;
+    top: 0;
     width: 100%;
-    background-color: white; /* 背景色を指定 */
-    z-index: 1000; /* 他の要素より前に表示 */
-    transition: background-color 0.3s ease;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* コンテナのレイアウト */
 .container {
-    max-width: 960px; 
-    margin: 0 auto; 
-    padding: 0 20px; 
     display: flex;
-    justify-content: space-between; /* 左右の要素を適切に配置 */
-    align-items: center; 
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-
+/* ロゴのスタイル */
 .logo {
-    font-size: 24px;
-    text-decoration: none; 
-    color: black;
+    font-size: 28px;
+    text-decoration: none;
+    color: #333;
     font-weight: bold;
-    margin-right: auto;
 }
 
-nav {
-    flex-grow: 1;
-}
+/* メニューのスタイル */
+@media (min-width: 769px) {
+    .nav-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+    }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
+    .nav-menu.side-menu {
+        position: static;
+        transform: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        box-shadow: none;
+    }
 
-nav ul li {
-    margin: 0 15px; 
-    transition: transform 0.3s ease;
-    
-}
+    .nav-menu li {
+        margin: 0 15px; /* メニュー項目間のスペースを調整 */
+    }
 
-nav ul li a {
-    color: black; 
-    text-decoration: none; 
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
+    .nav-menu li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+        padding: 10px 15px;
+        transition: color 0.3s, background-color 0.3s;
+    }
 
-nav ul li a:hover {
-    text-decoration: underline;
+    .nav-menu li a:hover {
+        color: white;
+        background-color: #007bff;
+        border-radius: 5px;
+    }
 }
 
 .cta-button {
     background-color: black;
     color: white;
-    border: none; 
-    border-radius: 5px; 
-    padding: 10px 20px; 
-    font-size: 16px; 
-    cursor: pointer; 
-    transition:background-color 0.4s ease, transform 0.3s ease;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.4s ease, transform 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: black; 
+    background-color: #333;
     transform: scale(1.05);
+}
+
+/* トグルボタンのスタイル */
+.toggle-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-menu:hover {
+    background-color: #f0f0f0;
+}
+
+/* スマホサイズ用のスタイル */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100%;
+        background-color: #fff;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
+    }
+
+    .nav-menu.open {
+        right: 0;
+    }
+
+    .nav-menu li {
+        margin: 20px 0;
+    }
+
+    .nav-menu li a {
+        font-size: 20px;
+        color: #333;
+        padding: 15px;
+    }
+
+    .cta-button {
+        margin-top: 20px;
+        width: 80%;
+        align-self: center;
+    }
+
+    .toggle-menu {
+        display: block;
+        margin-left: auto;
+    }
 }
 
 body, html {
@@ -96,6 +165,7 @@ body, html {
     font-style: normal;
     position: relative; /* 子要素の位置調整のために追加 */
     overflow: visible; /* hero要素内の要素が隠れないように */
+    margin-bottom: 10px;
 }
 
 .hero-content {
@@ -205,6 +275,11 @@ body, html {
     pointer-events: none; /* 動画がクリックできないようにする（必要に応じて） */
 }
 /* 国情報コンテナのスタイル */
+/* ヒーローセクションと国情報コンテナの間に隙間を設ける */
+.hero {
+    margin-bottom: 50px; /* 下部に50pxの余白を追加 */
+}
+
 .country-info-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2列レイアウト */
@@ -279,6 +354,7 @@ body, html {
     transition: max-height 0.3s ease, padding 0.3s ease; 
     color: #282c34;
 }
+
 .intro.open, .details.open {
     display: block;
     color: #282c34;
@@ -299,11 +375,13 @@ body, html {
 .intro {
     color: #282c34;
 }
+
+/* 全体の見出しスタイル */
 h1 {
     margin: 0;
     text-align: center;
-
 }
+
 .course .course-list {
     display: flex;
     justify-content: space-between;
