@@ -2,6 +2,7 @@ header {
     color: black;
     padding: 15px 0;
     position: sticky; /* スクロール時に上部に固定 */
+    text-align: center ;
     top: 0; /* ページ上部に固定 */
     width: 100%;
     background-color: white; /* 背景色を指定 */
@@ -17,6 +18,7 @@ header {
     justify-content: space-between; /* 左右の要素を適切に配置 */
     align-items: center; 
 }
+
 
 .logo {
     font-size: 24px;
@@ -41,6 +43,7 @@ nav ul {
 nav ul li {
     margin: 0 15px; 
     transition: transform 0.3s ease;
+    
 }
 
 nav ul li a {
@@ -75,6 +78,8 @@ body, html {
     padding: 0;
     height: 100%;
     font-family: Arial, sans-serif;
+    background-color: black; /* 任意の背景色や画像を設定 */
+    color: white;
     background-color: #282c34; /* 任意の背景色や画像を設定 */
     color: rgb(10, 158, 168);
     overflow-x: hidden; /* 横スクロールを無効にする */
@@ -198,6 +203,153 @@ body, html {
     object-fit: cover; /* 動画がセクション全体を覆うように調整 */
     transform: translate(-50%, -50%); /* 動画を中央に配置 */
     pointer-events: none; /* 動画がクリックできないようにする（必要に応じて） */
+}
+/* 国情報コンテナのスタイル */
+.country-info-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2列レイアウト */
+    gap: 20px; /* カード間のスペース */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 各国カードのスタイル */
+.country-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.country-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.country-title {
+    margin: 0;
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.country-title:hover {
+    background-color: #0056b3;
+}
+
+/* 各国カード内の詳細 */
+.info {
+    padding: 10px;
+    background-color: #f9f9f9;
+    color: #282c34;
+}
+
+.info h3 {
+    margin-top: 0;
+    font-size: 1.1em;
+    color: #007bff;
+}
+
+.info ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    font-size: 0.9em;
+    color: #282c34;
+}
+
+.info li {
+    margin-bottom: 5px;
+}
+
+/* アコーディオンのスタイル */
+.intro, .details {
+    display: none;
+    padding: 10px;
+    background-color: #f9f9f9;
+    transition: max-height 0.3s ease, padding 0.3s ease; 
+    color: #282c34;
+}
+.intro.open, .details.open {
+    display: block;
+    color: #282c34;
+    padding: 10px;
+    max-height: 500px;
+}
+
+.intro p, .details h3, .details ul {
+    margin: 10px;
+}
+
+.details {
+    padding: 10px;
+    background-color: #f9f9f9;
+    color: #282c34;
+}
+
+.intro {
+    color: #282c34;
+}
+h1 {
+    margin: 0;
+    text-align: center;
+
+}
+.course .course-list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 5.9027777778vw 0 0;
+}
+.course .course-list>li {
+    width: 49.3%;
+}
+ul, ol, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.course .course-list>li {
+    width: 49.3%;
+}
+.panel {
+    display: block;
+    color: #fff;
+    border: .0694444444vw solid #fff;
+    border-radius: .5555555556vw;
+    text-align: center;
+    padding: 5.9027777778vw 1.3888888889vw 4.1666666667vw;
+    transition: background-color ease-out .2s, border-color ease-out .2s;
+}
+a {
+    text-decoration: none;
+    color: var(--color-sub);
+    }
+.button {
+    text-align: center;
+   background: none;
+   color: #ffa260;
+   border: 2px solid;
+   padding: 1em 2em;
+   font-size: 1em;
+   transition: border-color 0.25s, color 0.25s box-shadow 0.25s, transform 0.25s;
+   
+}
+.button:hover {
+    border-color: #f1ff5c;
+    color: white;
+    box-shadow: 0 0.5em 0.5em 1-0.4em #f1ff5c;
+    transform: translate(-0.25em);
+    cursor: pointer;
 }
 
 .at {
