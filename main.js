@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const toggleMenu = document.querySelector('.toggle-menu');
+    const navMenu = document.querySelector('.side-menu');
+
+    toggleMenu.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+    });
+
+    navMenu.addEventListener('click', (event) => {
+        if (event.target.tagName === 'A' || event.target.classList.contains('cta-button')) {
+            navMenu.classList.remove('open');
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.country-card');
 
     cards.forEach(card => {
